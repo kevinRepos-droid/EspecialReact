@@ -13,6 +13,9 @@
         const [parcial2, setParcial2] = useState<string>("")
         const [resultado, setResultado] = useState<number>(0);
 
+        const [notasFinales, setNotasFinales] = useState<string[]>([]);
+        
+
         const crearNombre = () => {
             
             setNombres([...nombres, nombre])
@@ -20,9 +23,11 @@
             let calculo = parseFloat(parcial1) + parseFloat(parcial2)
             let calcul = calculo / 2
             let resultado = calcul
+            setNotasFinales([...notasFinales, resultado.toString()])
             setResultado(resultado)
         }
-        useEffect(crearNombre,[parcial1, parcial2, resultado]);
+        // useEffect(crearNombre,[parcial1, parcial2, resultado]);
+
         return (
         <ScrollView style={styles.scrollView}>
             <View>
@@ -75,7 +80,7 @@
                 <Text style={styles.text2}>{lista}</Text>
                 <Separator />
 
-                <Text style={styles.textocaja}>Nota Final: {resultado}</Text>
+                <Text style={notasFinales[index]<'60'?styles.textReprobado:styles.text}>Nota Final: {notasFinales[index]}</Text>
                 </View>
             ))}
             <View style={{ marginHorizontal: 100 }}></View>
@@ -114,7 +119,7 @@
         },
         text: {
             fontSize: 20,
-            color: '#000000',
+            color: '#05786A',
             width: '70%'
         },
         text2: {
@@ -124,8 +129,10 @@
         },
         text1: {
             color: '#05786A',
-
         },
+        textReprobado: {
+            color: '#B52222',
+        }, 
         containerBase: {
             flex: 1,
 
