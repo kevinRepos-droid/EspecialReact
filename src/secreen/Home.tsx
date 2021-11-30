@@ -3,61 +3,93 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView} from 'react-nati
 
 const List = ({ navigation }) => {
 
-    const [tarea, setTarea] = useState<string>('')
-    const [tareas, setTareas] = useState<string[]>([])
+    const [nombre, setNombre] = useState<string>('')
+    const [nombres, setNombres] = useState<string[]>([])
+    const [parcial1, setParcial1] = useState<string>("")
+    const [parcial2, setParcial2] = useState<string>("")
+    const [parcial3, setParcial3] = useState<string>("")
+    const [resultado, setResultado] = useState<number>(0);
+   
+    const crearNombre = () => {
+        setNombres([...nombres, nombre])
+        let calculo =parseFloat(parcial1) + parseFloat(parcial2) + parseFloat(parcial3)
+        let calcul = calculo / 3
+                let resultado = calcul
+        setResultado(resultado)
+    }
 
-    const crearTarea = () => {
-        setTareas([...tareas, tarea])
-    }
-  
-    const getUser =() => {
-        alert(tarea)
-    }
-    
-    const eliminarTarea = (id:number) => {
-        tareas.splice(id,1)
-        getTareas()
-    }
-    const getTareas= () =>{
-        setTareas([...tareas])
-    }
+
+
     return (
         <ScrollView style={styles.scrollView}>
-       
-      <View style={styles.containerBase}>
+      <View>
+
       <View style={styles.titlekevin}>
-          <Text style={styles.text}>Usuario</Text>
+          <Text style={styles.text}>  Calificaciones</Text>
         </View>
+
+
+        <View >
+          <Text style={styles.text1}>   Nombre del Estudiante</Text>
+        </View>
+
+
+            
         <View style={styles.container}>
             
           <TextInput
-            placeholder={"Escriba aqui"}
+            placeholder={"Ingresar"}
             style={styles.text}
-            onChangeText={setTarea}
+            onChangeText={setNombre}
           />
-          <Button title="Agregar" onPress={crearTarea} />
+       
         </View>
-        {tareas.map((lista,index) => (
+        <View>
+        <Text style={styles.text1}>I Parcial</Text>
+        <TextInput
+            placeholder={"I P"}
+            style={styles.text}
+            onChangeText={setParcial1}
+          />
+              <Text style={styles.text1}>I Parcial</Text>
+            <TextInput
+            placeholder={"II P"}
+            style={styles.text}
+            onChangeText={setParcial2}
+          />
+        <Text style={styles.text1}>I Parcial</Text>
+         <TextInput
+            placeholder={"III P"}
+            style={styles.text}
+            onChangeText={setParcial3}
+          />
+      </View>
+      
+        <View style={styles.container1}>
+        <View style={styles.fixToImput}>
+        <Button 
+          title="Agregar" 
+          onPress={crearNombre}
+          
+          color="#8C8A8A"
+           />
+        </View>
+        </View>
+        
+        {nombres.map((lista,index) => (
           <View style={styles.container} key={index}>
             <Text style={styles.text}>{lista}</Text>
-            
-            <Button
-              title="Eliminar"
-              onPress={() => eliminarTarea(index)}
-              color="red"
-            />
-            
+            <Text style={styles.text}>La nota Final es {resultado}</Text>  
+        
           </View>
           
         ))}
+        <View style={{ marginHorizontal:100}}>
 
-        <View style={{ marginHorizontal: 120 }}>
-          <Button title="ver Datos" onPress={getUser} />
-        </View>
-        <View style={{ marginHorizontal:120}}>
-        <Button title="Regresar" onPress={() => navigation.goBack()} />
       </View>
+      
         </View>
+
         </ScrollView>
     );
 }
@@ -68,10 +100,8 @@ const styles = StyleSheet.create({
 
     container: {
         width: '95%',
-        flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: '#C2DDF5',
-        marginBottom: 10,
+        marginBottom: 5,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 20,
@@ -85,25 +115,37 @@ const styles = StyleSheet.create({
         color: '#000000',
         width: '70%'
     },
+    text1: {
+        color: '#05786A',
+
+    },
     containerBase: {
         flex: 1,
-        backgroundColor: '#AED9FF',
+
     },
-        inputs: {
+    inputs: {
         borderRadius: 8,
         padding: 10,
         textAlign: 'center',
         fontSize: 22,
         fontWeight: 'bold',
-        },
-        scrollView: {
-            backgroundColor: '#8FB5C3',
-            marginHorizontal: 20
-        },
-        titlekevin: {
-            marginTop: 1,
-            paddingVertical: 8,
-            backgroundColor: "#C4C4C4",
-            textAlign: 'center',
-        },
+    },
+    scrollView: {
+        marginHorizontal: 20
+    },
+    titlekevin: {
+        marginTop: 1,
+        paddingVertical: 10,
+        backgroundColor: "#C4C4C4",
+    },
+    fixToImput: {
+        flexDirection: 'row',
+        paddingVertical: 5,
+
+    },
+    container1: {
+        flex: 2,
+        justifyContent: 'center',
+        marginLeft: 280
+    }
 })
