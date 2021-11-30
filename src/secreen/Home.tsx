@@ -6,6 +6,7 @@
         const Separator = () => (
             <View style={styles.separator} />
         );
+
         const [nombre, setNombre] = useState<string>('')
         const [nombres, setNombres] = useState<string[]>([])
 
@@ -29,12 +30,9 @@
         // useEffect(crearNombre,[parcial1, parcial2, resultado]);
 
         return (
-        <ScrollView style={styles.scrollView}>
+        
             <View>
-            <View style={styles.titlekevin}>
-                <Text style={styles.text}> Calificaciones</Text>
-            </View>
-
+            <ScrollView style={styles.scrollView}>
             <View>
                 <Text style={styles.text1}> Nombre del Estudiante</Text>
             </View>
@@ -80,12 +78,13 @@
                 <Text style={styles.text2}>{lista}</Text>
                 <Separator />
 
-                <Text style={notasFinales[index]<'60'?styles.textReprobado:styles.text}>Nota Final: {notasFinales[index]}</Text>
+                <Text style={notasFinales[index]<'60'?styles.textReprobado:styles.text3}>Nota Final: {notasFinales[index]}</Text>
                 </View>
             ))}
             <View style={{ marginHorizontal: 100 }}></View>
+            </ScrollView>
             </View>
-        </ScrollView>
+        
         );
 
     }
@@ -98,7 +97,7 @@
         container: {
             width: '95%',
             justifyContent: 'space-between',
-            marginBottom: 5,
+            marginBottom :5,
             paddingVertical: 10,
             paddingHorizontal: 20,
             borderRadius: 20,
@@ -119,39 +118,39 @@
         },
         text: {
             fontSize: 20,
+            color: '#05786A',    
+        },
+        text3: {
+            fontSize: 20,
             color: '#05786A',
-            width: '70%'
+            textAlign: 'right',
+            
         },
         text2: {
             fontSize: 20,
             color: '#05786A',
-            width: '70%'
         },
         text1: {
             color: '#05786A',
         },
         textReprobado: {
+            fontSize: 20,
             color: '#B52222',
+            textAlign: 'right',
         }, 
-        containerBase: {
-            flex: 1,
-
-        },
         inputs: {
             borderRadius: 8,
             padding: 10,
             textAlign: 'center',
-            fontSize: 22,
+            fontSize: 20,
             fontWeight: 'bold',
         },
         scrollView: {
             marginHorizontal: 10
         },
         titlekevin: {
-
             marginTop: 1,
             paddingVertical: 10,
-            backgroundColor: "#C4C4C4",
         },
         fixToImput: {
             flexDirection: 'row',
@@ -161,7 +160,6 @@
         container1: {
             flex: 2,
             justifyContent: 'center',
-            marginLeft: 280
         },
         separator: {
             marginVertical: 8,
