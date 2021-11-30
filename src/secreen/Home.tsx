@@ -82,7 +82,7 @@ const List = ({ navigation }) => {
         
         {nombres.map((lista,index) => (
           <View style={styles.container} key={index}>
-            <Text style={styles.text}>{lista}</Text>
+            <Text style={styles.text2}>{lista}</Text>
             <Separator />
             <Text style={styles.textocaja}>Nota Final: {resultado}</Text>  
         
@@ -120,6 +120,11 @@ const styles = StyleSheet.create({
         color: '#000000',
         width: '70%'
     },
+    text2: {
+        fontSize: 20,
+        color: '#05786A',
+        width: '70%'
+    },
     text1: {
         color: '#05786A',
 
@@ -139,6 +144,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 20
     },
     titlekevin: {
+        
         marginTop: 1,
         paddingVertical: 10,
         backgroundColor: "#C4C4C4",
