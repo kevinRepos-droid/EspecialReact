@@ -3,9 +3,10 @@ import { StyleSheet, Text, TextInput, View, Button, ScrollView } from 'react-nat
 import { useState } from 'react'
 
 const Home = ({navigation}) => {
-    const newform = () => {
-        navigation.navigate('Home2')
-      }
+
+
+    const [nombre, setnombre] = useState<string>('')
+    const [nombres, setnombres] = useState<string[]>([])
 
     return (
         
