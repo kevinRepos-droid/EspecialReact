@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView} from 'react-nati
 
 const List = ({ navigation }) => {
 
+    const Separator = () => (
+        <View style={styles.separator} />
+      );
+
     const [nombre, setNombre] = useState<string>('')
     const [nombres, setNombres] = useState<string[]>([])
     const [parcial1, setParcial1] = useState<string>("")
@@ -79,7 +83,8 @@ const List = ({ navigation }) => {
         {nombres.map((lista,index) => (
           <View style={styles.container} key={index}>
             <Text style={styles.text}>{lista}</Text>
-            <Text style={styles.text}>La nota Final es {resultado}</Text>  
+            <Separator />
+            <Text style={styles.textocaja}>Nota Final: {resultado}</Text>  
         
           </View>
           
@@ -147,5 +152,16 @@ const styles = StyleSheet.create({
         flex: 2,
         justifyContent: 'center',
         marginLeft: 280
-    }
+    },
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+      },
+      textocaja:{
+          textAlign: 'left',
+          paddingVertical: 20,
+          marginLeft: 150,
+          fontSize: 20,
+      }
 })
