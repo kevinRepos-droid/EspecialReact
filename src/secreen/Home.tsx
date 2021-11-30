@@ -22,6 +22,7 @@
             let resultado = calcul
             setResultado(resultado)
         }
+        useEffect(crearNombre,[parcial1, parcial2, resultado]);
         return (
         <ScrollView style={styles.scrollView}>
             <View>
