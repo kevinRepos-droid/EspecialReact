@@ -64,15 +64,12 @@ const List = ({ navigation }) => {
                 onChangeText={setParcial3}
               />
             </View>
-          </View>
-
-          <View style={styles.container1}>
-            <View style={styles.fixToImput}>
-              <Button title="Agregar" onPress={crearNombre} color="#8C8A8A" />
+            <View style={styles.container3}>
+            <Button title="Agregar" onPress={crearNombre} color="#8C8A8A" />
             </View>
           </View>
 
-          {nombres.map((lista, index) => (
+            {nombres.map((lista, index) => (
             <View style={styles.container} key={index}>
               <Text style={styles.text2}>{lista}</Text>
               <Separator />
