@@ -64,8 +64,10 @@ const List = ({ navigation }) => {
                 onChangeText={setParcial3}
               />
             </View>
-            <View style={styles.container3}>
+            <View style={styles.scrollView}>
+                <View style={styles.separator}>
             <Button title="Agregar" onPress={crearNombre} color="#8C8A8A" />
+            </View>
             </View>
           </View>
 
@@ -101,17 +103,16 @@ const styles = StyleSheet.create({
         borderWidth: 2
     },
     container3: {
-        width: '25%',
+        width: '24%',
         justifyContent: 'space-between',
-        marginBottom: 5,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        borderRadius: 5,
-        marginLeft: 10,
+        marginBottom: 4,
+        paddingVertical: 4,
+        paddingHorizontal: 5,
+        borderRadius: 4,
+        marginLeft: 3,
         borderColor: 'black',
         borderWidth: 2
     },
-
     text: {
         fontSize: 20,
         color: '#000000',
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     scrollView: {
-        marginHorizontal: 20
+        marginHorizontal: 10
     },
     titlekevin: {
 
